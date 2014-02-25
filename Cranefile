@@ -1,0 +1,26 @@
+[
+    {
+        "name": "sinatra_server",
+        "dockerfile": "server",
+        "image": "i_sinatra_server",
+        "run": {
+            "publish": ["4567:4567"],
+            "volumes-from": ["sinatra_app"],
+            "tty": true,
+            "interactive": true,
+            "detach": true,
+            "workdir": "/data"
+        }
+    },
+    {
+        "name": "sinatra_app",
+        "dockerfile": "app",
+        "image": "i_sinatra_app",
+        "run": {
+            "volume": ["app:/data"],
+            "tty": true,
+            "interactive": true,
+            "detach": true
+        }
+    }
+]
