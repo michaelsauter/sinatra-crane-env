@@ -6,10 +6,7 @@
         "run": {
             "publish": ["9292:9292"],
             "volume": ["app:/data"],
-            "tty": true,
-            "interactive": true,
             "detach": true,
-            "workdir": "/data",
             "link": ["sinatra_db:db"],
             "env": ["POSTGRESQL_DB=sinatra", "POSTGRESQL_USER=sinatra", "POSTGRESQL_PASS=sinatra"]
         }
