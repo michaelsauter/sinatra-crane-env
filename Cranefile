@@ -1,25 +1,25 @@
 [
     {
-        "name": "sinatra_server",
-        "dockerfile": "server",
-        "image": "i_sinatra_server",
-        "run": {
-            "publish": ["4567:4567"],
-            "volumes-from": ["sinatra_app"],
-            "tty": true,
-            "interactive": true,
-            "detach": true,
-            "workdir": "/data"
-        }
-    },
-    {
         "name": "sinatra_app",
-        "dockerfile": "app",
-        "image": "i_sinatra_app",
+        "dockerfile": ".",
+        "image": "michaelsauter/sinatra-example",
         "run": {
+            "publish": ["9292:9292"],
             "volume": ["app:/data"],
             "tty": true,
             "interactive": true,
+            "detach": true,
+            "workdir": "/data",
+            "link": ["sinatra_db:db"],
+            "env": ["POSTGRESQL_DB=sinatra", "POSTGRESQL_USER=sinatra", "POSTGRESQL_PASS=sinatra"]
+        }
+    },
+    {
+        "name": "sinatra_db",
+        "image": "orchardup/postgresql",
+        "run": {
+            "publish": ["5432:5432"],
+            "env": ["POSTGRESQL_DB=sinatra", "POSTGRESQL_USER=sinatra", "POSTGRESQL_PASS=sinatra"],
             "detach": true
         }
     }
