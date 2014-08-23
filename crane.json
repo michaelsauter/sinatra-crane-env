@@ -1,7 +1,6 @@
 {
-    "containers": [
-        {
-            "name": "sinatra_app",
+    "containers": {
+        "sinatra_app" : {
             "dockerfile": ".",
             "image": "michaelsauter/sinatra-example",
             "run": {
@@ -12,8 +11,7 @@
                 "env": ["POSTGRESQL_DB=sinatra", "POSTGRESQL_USER=sinatra", "POSTGRESQL_PASS=sinatra"]
             }
         },
-        {
-            "name": "sinatra_db",
+        "sinatra_db" : {
             "image": "orchardup/postgresql",
             "run": {
                 "publish": ["5432:5432"],
@@ -21,5 +19,5 @@
                 "detach": true
             }
         }
-    ]
+    }
 }
