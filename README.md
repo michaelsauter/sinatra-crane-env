@@ -3,9 +3,12 @@ Sample Sinatra blog using [Crane](https://github.com/michaelsauter/crane) to
 orchestrate the Docker containers.
 
 ## Usage
-* `git clone git@github.com:michaelsauter/sinatra-crane-env.git`
-* `cd sinatra-crane-env`
-* `crane lift blog`
+
+```bash
+git clone git@github.com:michaelsauter/sinatra-crane-env.git
+cd sinatra-crane-env
+crane lift blog
+```
 
 After all images are downloaded and the server has started, try to access
 `<dockerhost>:9292`. As the app container bind-mounts `blog`, you can edit e.g.
