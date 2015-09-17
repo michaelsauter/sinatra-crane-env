@@ -3,7 +3,7 @@ containers:
     build:
       context: image
     image: michaelsauter/sinatra-example
-    run: &blog-run
+    run:
       publish: ["9292:9292"]
       volume: ["blog:/blog"]
       link: ["postgres:db"]
@@ -13,11 +13,7 @@ containers:
         - "POSTGRESQL_PASS=default"
       tty: true
       interactive: true
-  blog-server:
-    build:
-      context: image
-    image: michaelsauter/sinatra-example
-    run: { <<: *blog-run , cmd: start-blog }
+      cmd: "start-blog"
   postgres:
     image: d11wtq/postgres
     run:
