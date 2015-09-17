@@ -1,0 +1,4 @@
+#!/bin/sh
+bundle install --path .bundle --binstubs .bundle/bin
+bundle exec rake db:migrate
+bundle exec rackup

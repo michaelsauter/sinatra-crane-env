@@ -1,0 +1,27 @@
+containers:
+  blog:
+    build:
+      context: image
+    image: michaelsauter/sinatra-example
+    run: &blog-run
+      publish: ["9292:9292"]
+      volume: ["blog:/blog"]
+      link: ["postgres:db"]
+      env:
+        - "POSTGRESQL_DB=default"
+        - "POSTGRESQL_USER=default"
+        - "POSTGRESQL_PASS=default"
+      tty: true
+      interactive: true
+  blog-server:
+    build:
+      context: image
+    image: michaelsauter/sinatra-example
+    run: { <<: *blog-run , cmd: start-blog }
+  postgres:
+    image: d11wtq/postgres
+    run:
+      detach: true
+
+
+
