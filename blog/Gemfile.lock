@@ -18,6 +18,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.15)
+    bigdecimal (1.2.7)
     builder (3.1.4)
     i18n (0.6.9)
     minitest (4.7.5)
@@ -26,6 +27,7 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
+    rake (10.4.2)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -43,6 +45,11 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  bigdecimal
   pg
+  rake
   sinatra
   sinatra-activerecord
+
+BUNDLED WITH
+   1.10.5

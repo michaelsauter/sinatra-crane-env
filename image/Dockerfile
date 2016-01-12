@@ -1,4 +1,4 @@
-FROM       michaelsauter/ruby:2.2.2
+FROM       michaelsauter/ruby:2.2.4
 MAINTAINER Michael Sauter <mail@michaelsauter.net>
 
 RUN sudo apk-install build-base postgresql-dev

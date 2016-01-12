@@ -15,7 +15,7 @@ containers:
       interactive: true
       cmd: "start-blog"
   postgres:
-    image: d11wtq/postgres
+    image: michaelsauter/postgres:9.4.5
     run:
       detach: true
 
